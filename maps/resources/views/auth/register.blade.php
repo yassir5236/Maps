@@ -1,6 +1,18 @@
 <x-guest-layout>
-    <form method="POST" action="{{ route('register') }}">
+    <form method="POST" action="{{ route('register') }}" enctype="multipart/form-data">
         @csrf
+
+
+
+         <!-- Profile Image -->
+         <div>
+            <x-input-label for="image" :value="__('image')" />
+            <x-text-input id="image" class="block mt-1 w-full text-xs" type="file" name="image" required />
+            <x-input-error :messages="$errors->get('image')" class="mt-2" />
+        </div>
+
+
+
 
         <!-- Name -->
         <div>
